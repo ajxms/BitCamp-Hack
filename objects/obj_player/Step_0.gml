@@ -86,6 +86,7 @@ if (keyboard_check_pressed(ord("L")) && dash_cooldown_timer <= 0 && !is_dashing)
 	}
 
 
+/*
 if (is_dashing) {
     var dash_move = dash_speed * dash_direction;
     
@@ -117,7 +118,7 @@ if (is_dashing) {
 if (dash_cooldown_timer > 0){ 
 	dash_cooldown_timer--;
 }
-
+*/
 //y movement
 
 yspd += grav;
@@ -138,7 +139,7 @@ if (up_keyBuffered && jumpCount < maxJumps) {
     up_keyHoldTimer = jumpHoldFrames;
 	
 	//audio
-	audio_play_sound(snd_jump, 1, false);
+	//audio_play_sound(snd_jump, 1, false);
 	
 }
 // ADD THIS: Continuous jumping when on ground and holding jump key
@@ -280,6 +281,48 @@ if (is_dashing) {
 mask_index = maskSpr;
 
 
+// Check for left mouse click
+if (mouse_check_button_pressed(mb_left)) {
+    // 1. Find the angle from the player to the mouse
+    var _dir = point_direction(x, y, mouse_x, mouse_y);
+    
+    // 2. Create the echo instance
+    var _inst = instance_create_layer(x, y, "player", obj_echo);
+    var _inst2 = instance_create_layer(x, y, "player", obj_echo);
+    var _inst3 = instance_create_layer(x, y, "player", obj_echo);
+    
+    // 3. Set the echo's direction and speed
+    with (_inst) {
+        direction = _dir;
+        speed = 8;           // Adjust for how fast an echo travels
+        image_angle = _dir;  // Rotates the sprite to face the direction it's flying
+    }
+        with (_inst2) {
+        direction = _dir;
+        speed = 7.5;           // Adjust for how fast an echo travels
+        image_angle = _dir;  // Rotates the sprite to face the direction it's flying
+    }
+        with (_inst3) {
+        direction = _dir;
+        speed = 7;           // Adjust for how fast an echo travels
+        image_angle = _dir;  // Rotates the sprite to face the direction it's flying
+    }
+}
 
 
-
+// --- ECHO TRAIL LOGIC ---
+// Track positions if we are in the air OR moving fast (selling the "Echo" speed)
+if (!onGround || abs(xspd) > moveSpd[0]) {
+    // Insert current position [x, y] at the start of the list
+    ds_list_insert(trail_points, 0, [x, y]);
+    
+    // Keep the list at your max length
+    if (ds_list_size(trail_points) > trail_max_length) {
+        ds_list_delete(trail_points, trail_max_length);
+    }
+} else {
+    // Gradually shorten the trail when standing still so it "retracts"
+    if (ds_list_size(trail_points) > 0) {
+        ds_list_delete(trail_points, ds_list_size(trail_points) - 1);
+    }
+}

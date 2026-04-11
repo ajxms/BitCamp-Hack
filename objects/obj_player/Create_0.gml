@@ -17,7 +17,7 @@ jspd = -9.15;
 up_keyHoldTimer = 0;
 jumpHoldFrames = 18;
 jumpCount = 0;
-maxJumps = 2;     // Allows double jump
+maxJumps = 1;     // Allows double jump
 onGround = true;
 
 // Platforming
@@ -58,3 +58,7 @@ nearInvisibleWall = false;
 spawnPosition()
 
 
+//for jumping
+trail_points = ds_list_create();
+trail_max_length = 15; // How many "echo segments" follow you
+is_jumping = false;

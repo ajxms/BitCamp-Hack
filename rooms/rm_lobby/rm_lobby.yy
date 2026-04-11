@@ -14,6 +14,9 @@
     {"name":"inst_73C07301","path":"rooms/rm_lobby/rm_lobby.yy",},
     {"name":"inst_3FEE870F","path":"rooms/rm_lobby/rm_lobby.yy",},
     {"name":"inst_982E83E","path":"rooms/rm_lobby/rm_lobby.yy",},
+    {"name":"inst_7FBCA7F7","path":"rooms/rm_lobby/rm_lobby.yy",},
+    {"name":"inst_6C528A6F","path":"rooms/rm_lobby/rm_lobby.yy",},
+    {"name":"inst_2A2B823B","path":"rooms/rm_lobby/rm_lobby.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -28,6 +31,9 @@
     {"$GMRInstanceLayer":"","%Name":"collision","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_3FEE870F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3FEE870F","objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":60.0,"scaleY":5.0,"x":0.0,"y":1056.0,},
         {"$GMRInstance":"v4","%Name":"inst_982E83E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_982E83E","objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0,"scaleY":6.0,"x":544.0,"y":864.0,},
+        {"$GMRInstance":"v4","%Name":"inst_7FBCA7F7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7FBCA7F7","objectId":{"name":"obj_wallUpandDown","path":"objects/obj_wallUpandDown/obj_wallUpandDown.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":960.0,"y":608.0,},
+        {"$GMRInstance":"v4","%Name":"inst_6C528A6F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6C528A6F","objectId":{"name":"obj_wallbreak","path":"objects/obj_wallbreak/obj_wallbreak.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1280.0,"y":1024.0,},
+        {"$GMRInstance":"v4","%Name":"inst_2A2B823B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2A2B823B","objectId":{"name":"obj_semisolidwall","path":"objects/obj_semisolidwall/obj_semisolidwall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":864.0,"y":928.0,},
       ],"layers":[],"name":"collision","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"inst_dflag","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_6EA070BF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6EA070BF","objectId":{"name":"obj_death","path":"objects/obj_death/obj_death.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":73.90626,"scaleY":3.0625,"x":25.0,"y":1015.0,},
@@ -58,7 +64,7 @@
     "Height":1200,
     "inheritRoomSettings":false,
     "persistent":false,
-    "Width":7000,
+    "Width":2000,
   },
   "sequenceId":null,
   "views":[

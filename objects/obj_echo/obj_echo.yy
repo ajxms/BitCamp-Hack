@@ -1,18 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_player",
+  "%Name":"obj_echo",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":12,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_player",
+  "name":"obj_echo",
   "overriddenProperties":[],
   "parent":{
-    "name":"grp_player",
-    "path":"folders/Objects/grp_player.yy",
+    "name":"grp_echo",
+    "path":"folders/Objects/grp_echo.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -33,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_playerholder",
-    "path":"sprites/spr_playerholder/spr_playerholder.yy",
+    "name":"spr_echo",
+    "path":"sprites/spr_echo/spr_echo.yy",
   },
   "spriteMaskId":null,
   "visible":true,
