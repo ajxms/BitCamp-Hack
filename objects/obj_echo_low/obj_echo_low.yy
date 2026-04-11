@@ -1,11 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_echo",
+  "%Name":"obj_echo_low",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_reflect_wall","path":"objects/obj_reflect_wall/obj_reflect_wall.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_echo",
+  "name":"obj_echo_low",
   "overriddenProperties":[],
   "parent":{
     "name":"grp_echo",
@@ -30,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_echo",
-    "path":"sprites/spr_echo/spr_echo.yy",
+    "name":"spr_echo_low",
+    "path":"sprites/spr_echo_low/spr_echo_low.yy",
   },
   "spriteMaskId":null,
   "visible":true,

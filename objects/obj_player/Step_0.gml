@@ -281,31 +281,31 @@ if (is_dashing) {
 mask_index = maskSpr;
 
 
+//change the frequency
+if( keyboard_check_pressed(ord("E"))){
+    toggle_frequency = !toggle_frequency;
+}
+
 // Check for left mouse click
+// --- 2. Shooting Logic ---
 if (mouse_check_button_pressed(mb_left)) {
-    // 1. Find the angle from the player to the mouse
     var _dir = point_direction(x, y, mouse_x, mouse_y);
     
-    // 2. Create the echo instance
-    var _inst = instance_create_layer(x, y, "player", obj_echo);
-    var _inst2 = instance_create_layer(x, y, "player", obj_echo);
-    var _inst3 = instance_create_layer(x, y, "player", obj_echo);
-    
-    // 3. Set the echo's direction and speed
-    with (_inst) {
-        direction = _dir;
-        speed = 8;           // Adjust for how fast an echo travels
-        image_angle = _dir;  // Rotates the sprite to face the direction it's flying
-    }
-        with (_inst2) {
-        direction = _dir;
-        speed = 7.5;           // Adjust for how fast an echo travels
-        image_angle = _dir;  // Rotates the sprite to face the direction it's flying
-    }
-        with (_inst3) {
-        direction = _dir;
-        speed = 7;           // Adjust for how fast an echo travels
-        image_angle = _dir;  // Rotates the sprite to face the direction it's flying
+    // Determine which object to spawn
+    var _obj_to_spawn = toggle_frequency ? obj_echo_low : obj_echo_high;
+    var _obj_count = toggle_frequency ? 2: 4;
+    // Use a loop to create the 3 echo layers (cleaner than copy-pasting)
+    var _speeds = [8, 7.5, 7, 6.5];
+    for (var i = 0; i < _obj_count; i++) {
+        var _inst = instance_create_layer(x, y, "player", _obj_to_spawn);
+        with (_inst) {
+            direction = _dir;
+            speed = _speeds[i];
+            image_angle = _dir;
+            
+            // Visual Polish: Make the back layers slightly more transparent
+            //image_alpha = 1 - (i * 0.2); 
+        }
     }
 }
 

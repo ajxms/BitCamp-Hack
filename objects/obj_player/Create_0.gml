@@ -62,3 +62,6 @@ spawnPosition()
 trail_points = ds_list_create();
 trail_max_length = 15; // How many "echo segments" follow you
 is_jumping = false;
+
+//low high toggle for now
+toggle_frequency = false;
