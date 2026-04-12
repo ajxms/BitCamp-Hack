@@ -2,6 +2,7 @@
 // --- Room Start Event ---
 
 // 1. Check if a spawn point exists in this new room
+hp = hp_max;
 if (instance_exists(obj_spawn_point)) {
     
     // 2. Move the persistent player to that object's coordinates

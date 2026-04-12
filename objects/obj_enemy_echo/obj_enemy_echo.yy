@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_echo_high",
+  "%Name":"obj_enemy_echo",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_echo_high",
+  "name":"obj_enemy_echo",
   "overriddenProperties":[],
   "parent":{
     "name":"grp_echo",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_echo_high",
-    "path":"sprites/spr_echo_high/spr_echo_high.yy",
+    "name":"spr_enemy_echo",
+    "path":"sprites/spr_enemy_echo/spr_enemy_echo.yy",
   },
   "spriteMaskId":null,
   "visible":true,

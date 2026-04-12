@@ -25,6 +25,7 @@ myFloorPlat = noone;
 moveplatXspd = 0;
 
 // Dashing
+
 dash_direction = 1;
 dash_speed = 20;
 dash_duration = 15;
@@ -65,3 +66,24 @@ is_jumping = false;
 
 //low high toggle for now
 toggle_frequency = false;
+
+
+// Stats
+hp_max = 100;
+hp = hp_max;
+
+// Echo Charges (Ammo)
+echo_high_max = 5;
+echo_high_count = echo_high_max;
+
+echo_low_max = 3; // Maybe low frequency is "heavier" and has less ammo
+echo_low_count = echo_low_max;
+
+// Recharge logic (optional)
+recharge_timer = 0;
+recharge_speed = 120; // 2 second to gain 1 charge
+
+// In obj_player Create Event
+is_silenced = false;
+silence_timer = 0;
+silence_duration = 120; // 2 seconds at 60fps

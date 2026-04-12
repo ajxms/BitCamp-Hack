@@ -1,0 +1,1 @@
+instruction_text = "Press E to toggle between High and Low Echo. \n Use Low Echo to unlock doors, and High to Attack!";

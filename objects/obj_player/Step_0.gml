@@ -33,6 +33,7 @@ if (place_meeting(x + xspd, y, obj_wall)) {
 }
 
 // Horizontal collision with obj_wallinvisible (only when not dashing)
+/*
 if (place_meeting(x + xspd, y, obj_wallinvisible) && !is_dashing) {
     if (!place_meeting(x + xspd, y - abs(xspd) - 1, obj_wallinvisible)) {
         while (place_meeting(x + xspd, y, obj_wallinvisible)) { y -= _subpixel; nearInvisibleWall = true; }
@@ -63,7 +64,7 @@ if (place_meeting(x, y + yspd, obj_wallinvisible) && !is_dashing) {
         yspd = 0;
     }
 }
-
+*/
 
 // Apply X movement
 x += xspd;
@@ -286,27 +287,62 @@ if( keyboard_check_pressed(ord("E"))){
     toggle_frequency = !toggle_frequency;
 }
 
-// Check for left mouse click
-// --- 2. Shooting Logic ---
-if (mouse_check_button_pressed(mb_left) ||  keyboard_check_pressed(ord("P"))) {
-    var _dir = point_direction(x, y, mouse_x, mouse_y);
+// Inside obj_player Step Event (around your shooting code)
+if (is_silenced) {
+    silence_timer--;
+    if (silence_timer <= 0) {
+        is_silenced = false;
+        image_blend = c_white; // Restore player color
+    }
+}
+
+// ONLY allow shooting if NOT silenced
+if (!is_silenced) {
+    // Check for left mouse click
+    // --- 2. Shooting Logic ---
+    if (mouse_check_button_pressed(mb_left) ||  keyboard_check_pressed(ord("P"))) {
+        var _dir = point_direction(x, y, mouse_x, mouse_y);
     
-    // Determine which object to spawn
-    var _obj_to_spawn = toggle_frequency ? obj_echo_low : obj_echo_high;
-    var _obj_count = toggle_frequency ? 4: 6;
-    // Use a loop to create the 3 echo layers (cleaner than copy-pasting)
-    var _speeds = [8, 7.5, 7, 6.5, 6, 5.5, 5, 4.5];
-    for (var i = 0; i < _obj_count; i++) {
-        var _inst = instance_create_layer(x, y, "player", _obj_to_spawn);
-        with (_inst) {
-            direction = _dir;
-            speed = _speeds[i];
-            image_angle = _dir;
+        // Determine which object to spawn
+        var _inst;
+        var _obj_to_spawn;
+        var _obj_count = 0;
+        if (toggle_frequency == false && echo_high_count > 0) {
+            // Shoot High Frequency
+            _obj_count = 6;
+            _obj_to_spawn = obj_echo_high;
+            echo_high_count--; 
+        } 
+        else if (toggle_frequency == true && echo_low_count > 0) {
+            // Shoot Low Frequency
+            _obj_count = 4;
+            _obj_to_spawn = obj_echo_low;
+            echo_low_count--;
+        }
+    
+
+        // Use a loop to create the 3 echo layers (cleaner than copy-pasting)
+        var _speeds = [8, 7.5, 7, 6.5, 6, 5.5, 5, 4.5];
+        for (var i = 0; i < _obj_count; i++) {
+            _inst = instance_create_layer(x, y-50, "player", _obj_to_spawn);
+            with (_inst) {
+                direction = _dir;
+                speed = _speeds[i];
+                image_angle = _dir;
             
-            // Visual Polish: Make the back layers slightly more transparent
-            //image_alpha = 1 - (i * 0.2); 
+                // Visual Polish: Make the back layers slightly more transparent
+                //image_alpha = 1 - (i * 0.2); 
+            }
         }
     }
+}
+
+// Simple Auto-Recharge
+recharge_timer++;
+if (recharge_timer >= recharge_speed) {
+    if (echo_high_count < echo_high_max) echo_high_count++;
+    if (echo_low_count < echo_low_max) echo_low_count++;
+    recharge_timer = 0;
 }
 
 
@@ -314,7 +350,7 @@ if (mouse_check_button_pressed(mb_left) ||  keyboard_check_pressed(ord("P"))) {
 // Track positions if we are in the air OR moving fast (selling the "Echo" speed)
 if (!onGround || abs(xspd) > moveSpd[0]) {
     // Insert current position [x, y] at the start of the list
-    ds_list_insert(trail_points, 0, [x, y]);
+    ds_list_insert(trail_points, 0, [x, y-30]);
     
     // Keep the list at your max length
     if (ds_list_size(trail_points) > trail_max_length) {
@@ -325,4 +361,19 @@ if (!onGround || abs(xspd) > moveSpd[0]) {
     if (ds_list_size(trail_points) > 0) {
         ds_list_delete(trail_points, ds_list_size(trail_points) - 1);
     }
+}
+
+
+if (global.deathFlag == true) {
+    // 1. Reset the flag so we don't loop forever
+    global.deathFlag = false;
+    
+    // 2. Reset critical player stats so you don't spawn dead
+    hp = hp_max;
+    echo_high_count = echo_high_max;
+    echo_low_count = echo_low_max;
+    is_silenced = false;
+    
+    // 3. Restart the current room
+    room_restart();
 }

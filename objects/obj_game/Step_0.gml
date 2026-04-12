@@ -1,5 +1,6 @@
 
 if (global.deathFlag){
+
 	
 	    // Play random death sound (0, 1, or 2 for all 3 sounds)
     /*var death_sounds = [snd_death1, snd_death2, snd_death3];
