@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_wallbreak",
-    "path":"sprites/spr_wallbreak/spr_wallbreak.yy",
+    "name":"spr_platform_wall",
+    "path":"sprites/spr_platform_wall/spr_platform_wall.yy",
   },
   "spriteMaskId":null,
   "visible":true,

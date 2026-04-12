@@ -1,4 +1,4 @@
-if(instance_exists(obj_player)){
+/*if(instance_exists(obj_player)){
 	if(!is_breaking && y-79 >= obj_player.y && x-120 <= obj_player.x && x + 120 >= obj_player.x && y-180 <= obj_player.y)
 	{
 		sprite_index = wallCrack;

@@ -1,4 +1,4 @@
-draw_set_font(fnt_med);
+/*draw_set_font(fnt_med);
 
 // Show "Press Shift" when player is near
 if (instance_exists(obj_player)) {

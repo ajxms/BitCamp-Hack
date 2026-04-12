@@ -288,14 +288,14 @@ if( keyboard_check_pressed(ord("E"))){
 
 // Check for left mouse click
 // --- 2. Shooting Logic ---
-if (mouse_check_button_pressed(mb_left)) {
+if (mouse_check_button_pressed(mb_left) ||  keyboard_check_pressed(ord("P"))) {
     var _dir = point_direction(x, y, mouse_x, mouse_y);
     
     // Determine which object to spawn
     var _obj_to_spawn = toggle_frequency ? obj_echo_low : obj_echo_high;
     var _obj_count = toggle_frequency ? 4: 6;
     // Use a loop to create the 3 echo layers (cleaner than copy-pasting)
-    var _speeds = [8, 7.5, 7, 6.5];
+    var _speeds = [8, 7.5, 7, 6.5, 6, 5.5, 5, 4.5];
     for (var i = 0; i < _obj_count; i++) {
         var _inst = instance_create_layer(x, y, "player", _obj_to_spawn);
         with (_inst) {

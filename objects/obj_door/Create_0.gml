@@ -1,2 +1,2 @@
 interaction_distance = 200;
-visible = false; // Hide the door at start
+visible = true; // Hide the door at start

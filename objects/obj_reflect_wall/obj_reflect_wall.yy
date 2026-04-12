@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_reflect_wall",
-    "path":"sprites/spr_reflect_wall/spr_reflect_wall.yy",
+    "name":"spr_reflect_walll",
+    "path":"sprites/spr_reflect_walll/spr_reflect_walll.yy",
   },
   "spriteMaskId":null,
   "visible":true,
