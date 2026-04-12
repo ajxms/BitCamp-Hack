@@ -14,6 +14,9 @@ with(other) {
     
     // 4. Visual Feedback
     image_blend = c_gray; // Dim the player to show they're weakened
+    if (hp <= 0){
+        global.deathFlag = true;
+    }
 }
 
 // Destroy the enemy echo

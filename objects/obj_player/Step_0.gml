@@ -140,7 +140,7 @@ if (up_keyBuffered && jumpCount < maxJumps) {
     up_keyHoldTimer = jumpHoldFrames;
 	
 	//audio
-	//audio_play_sound(snd_jump, 1, false);
+	audio_play_sound(snd_jump, 1, false);
 	
 }
 // ADD THIS: Continuous jumping when on ground and holding jump key
@@ -308,12 +308,16 @@ if (!is_silenced) {
         var _obj_to_spawn;
         var _obj_count = 0;
         if (toggle_frequency == false && echo_high_count > 0) {
+            
+            //
+            audio_play_sound(snd_echo_high, 1, false);
             // Shoot High Frequency
             _obj_count = 6;
             _obj_to_spawn = obj_echo_high;
             echo_high_count--; 
         } 
         else if (toggle_frequency == true && echo_low_count > 0) {
+            audio_play_sound(snd_echo_low, 1, false);
             // Shoot Low Frequency
             _obj_count = 4;
             _obj_to_spawn = obj_echo_low;
@@ -363,6 +367,10 @@ if (!onGround || abs(xspd) > moveSpd[0]) {
     }
 }
 
+if(!instance_exists(obj_prologue) && run_audio_once){
+    run_audio_once = false;
+    audio_play_sound(snd_bg, 1, true);
+}
 
 if (global.deathFlag == true) {
     // 1. Reset the flag so we don't loop forever
@@ -373,6 +381,9 @@ if (global.deathFlag == true) {
     echo_high_count = echo_high_max;
     echo_low_count = echo_low_max;
     is_silenced = false;
+    
+    audio_stop_sound(snd_bg);
+    run_audio_once = true;
     
     // 3. Restart the current room
     room_restart();

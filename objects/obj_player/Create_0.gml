@@ -13,7 +13,7 @@ yspd = 0;
 // Jumping
 grav = 0.6;
 termVel = 9;
-jspd = -9.15;
+jspd = -11.15;
 up_keyHoldTimer = 0;
 jumpHoldFrames = 18;
 jumpCount = 0;
@@ -87,3 +87,6 @@ recharge_speed = 120; // 2 second to gain 1 charge
 is_silenced = false;
 silence_timer = 0;
 silence_duration = 120; // 2 seconds at 60fps
+
+
+run_audio_once = true;

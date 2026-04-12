@@ -7,6 +7,7 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_anykey)) {
     
     // If we run out of pages, destroy the overlay to start the game
     if (current_page >= array_length(text_pages)) {
+        
         instance_destroy();
     }
 }

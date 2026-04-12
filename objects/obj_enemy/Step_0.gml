@@ -34,6 +34,25 @@ if (instance_exists(obj_player)) {
             // audio_play_sound(snd_enemy_shoot, 1, false);
         }
     }
+    // 2. Timer Countdown
+    if (voice_cooldown > 0) {
+        voice_cooldown--;
+    } 
+    // 3. Play Random Voice if in range and not already talking
+    else if (_dist < voice_range) {
+        
+        // Pick a random index from the array
+        var _random_index = irandom(array_length(voice_lines) - 1);
+        var _chosen_snd = voice_lines[_random_index];
+
+        // Play the sound (ensures we don't restart it if it's already playing)
+        if (!audio_is_playing(_chosen_snd)) {
+            audio_play_sound(_chosen_snd, 5, false);
+            
+            // Set a random cooldown so they don't sound repetitive
+            voice_cooldown = irandom_range(voice_delay_min, voice_delay_max);
+        }
+    }
 }
 
 // Decrease cooldown over time

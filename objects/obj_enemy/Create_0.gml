@@ -16,3 +16,12 @@ hp_max = 100;
 hp = hp_max;
 hp_bar_width = 40; // Total width in pixels
 hp_bar_height = 6;
+
+// Playlist array
+voice_lines = [snd_silence, snd_detected, snd_shortenemy, snd_enemy];
+
+// Voice Control
+voice_cooldown = 0;
+voice_delay_min = 180; // 3 seconds at 60fps
+voice_delay_max = 420; // 7 seconds
+voice_range = 350;     // Only talk if player is this close
