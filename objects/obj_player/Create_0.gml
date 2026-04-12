@@ -36,12 +36,12 @@ is_dashing = false;
 
 
 // Sprites
-maskSpr = spr_playerholder;
-idleSpr = spr_playerholder;
-walkSpr = spr_playerholder;
+maskSpr = spr_player;
+idleSpr = spr_player;
+walkSpr = spr_player;
 //runSpr = spr_runFinal;
-jumpSpr = spr_playerholder;
-dashSpr = spr_playerholder;
+jumpSpr = spr_player;
+dashSpr = spr_player;
 /*
 walkSpr = spr_player_walk;
 //runSpr = spr_runFinal;

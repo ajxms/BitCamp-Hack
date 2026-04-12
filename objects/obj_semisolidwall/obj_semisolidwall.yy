@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_wallbreak",
-    "path":"sprites/spr_wallbreak/spr_wallbreak.yy",
+    "name":"spr_platform",
+    "path":"sprites/spr_platform/spr_platform.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -293,7 +293,7 @@ if (mouse_check_button_pressed(mb_left)) {
     
     // Determine which object to spawn
     var _obj_to_spawn = toggle_frequency ? obj_echo_low : obj_echo_high;
-    var _obj_count = toggle_frequency ? 2: 4;
+    var _obj_count = toggle_frequency ? 4: 6;
     // Use a loop to create the 3 echo layers (cleaner than copy-pasting)
     var _speeds = [8, 7.5, 7, 6.5];
     for (var i = 0; i < _obj_count; i++) {
